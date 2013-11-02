@@ -53,6 +53,7 @@ public class LogService {
 	
 	public Log createAsJson(JsonNode json) {
 		String name = json.findPath("name").textValue();
+		String body = json.findPath("body").textValue();
 
 		
 		final FramedGraph<Graph> fg = GraphDB.createFramedGraph();
@@ -62,7 +63,7 @@ public class LogService {
 			log.setClassName(Log.class.getSimpleName());
 			log.setTitle(name);
 			log.setName(name);
-			log.setLogBody(name);
+			log.setLogBody(body);
 			log.setCreatedDate(nowDate);
 			log.setUpdatedDate(nowDate);
 		}
